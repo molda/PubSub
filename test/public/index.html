@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<script src="/@pubsub/client.js"></script>
+	<script>
+		var pubsub = new PubSub();
+		pubsub.on('connected', function(){
+			console.log('connected');
+			pubsub.subscribe('hello');
+		});
+		pubsub.on('disconnected', function(){
+			console.log('disconnected');
+		});
+		pubsub.on('hello', function(msg){
+			console.log('hello', msg);
+		});
+	</script>
+</body>
+</html>
